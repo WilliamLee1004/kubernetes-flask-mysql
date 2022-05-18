@@ -20,7 +20,7 @@ env:
   IBM_CLOUD_REGION: jp-tok
   ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
   REGISTRY_HOSTNAME: icr.io
-  IMAGE_NAME: flask-api
+  IMAGE_NAME: flask-api-test
   IKS_CLUSTER: c9v2egsf0chllgkva0v0
   DEPLOYMENT_NAME: iks-test
   PORT: 5001
