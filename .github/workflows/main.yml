@@ -21,4 +21,3 @@ jobs:
     - name: Run yaml check
       run: |
         make yaml-lint
-        popd
