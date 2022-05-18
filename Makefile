@@ -18,7 +18,7 @@ push-image: build-image
 yaml-lint:
 	@echo "---------yamllint----------"
 	yamllint flaskapi-secrets.yml
-	yamllint flaskapp-deployment.yml
+	
 
 docker-lint:
 	@echo "---------docker lint----------"
