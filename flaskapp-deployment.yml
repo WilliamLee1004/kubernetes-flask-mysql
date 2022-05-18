@@ -29,7 +29,6 @@ spec:
                   key: db_root_password
             - name: db_name
               value: flaskapi
-
 ---
 apiVersion: v1
 kind: Service
