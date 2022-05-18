@@ -21,3 +21,8 @@ jobs:
     - name: Run yaml check
       run: |
         make yaml-lint
+        
+    - name: Run docker check
+      run: |
+        make docker-lint
+        
