@@ -17,6 +17,9 @@ jobs:
 
     - name: Install required packages
       run: sudo apt-get install -f yamllint
+      
+    - name: Install required packages
+      run: sudo docker pull hadolint/hadolint
 
     - name: Run yaml check
       run: |
