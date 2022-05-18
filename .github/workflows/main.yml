@@ -18,10 +18,6 @@ jobs:
     - name: Install required packages
       run: sudo apt-get install -f yamllint
 
-    - name: Run docker check
-      run: |
-        make docker-lint
-        popd
     - name: Run yaml check
       run: |
         make yaml-lint
