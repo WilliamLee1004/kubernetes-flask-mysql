@@ -19,7 +19,7 @@ env:
   IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
   IBM_CLOUD_REGION: jp-tok
   ICR_NAMESPACE: ${{ secrets.ICR_NAMESPACE }}
-  REGISTRY_HOSTNAME: jp.icr.io
+  REGISTRY_HOSTNAME: icr.io
   IMAGE_NAME: flask-api-test
   IKS_CLUSTER: c9v2egsf0chllgkva0v0
   DEPLOYMENT_NAME: iks-test
@@ -48,7 +48,7 @@ jobs:
     - name: Authenticate with IBM Cloud CLI
       run: |
         ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g Interview
-        ibmcloud cr region-set "${IBM_CLOUD_REGION}"
+        ibmcloud cr region-set global
         ibmcloud cr login
 
     # Build the Docker image
