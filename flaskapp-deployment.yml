@@ -6,7 +6,7 @@ metadata:
   labels:
     app: flaskapi
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: flaskapi
@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
         - name: flaskapi
-          image: flask-api
-          imagePullPolicy: Never
+          image: icr.io/intvwee-ns/flask-api:1
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
           env:
@@ -29,6 +29,7 @@ spec:
                   key: db_root_password
             - name: db_name
               value: flaskapi
+
 ---
 apiVersion: v1
 kind: Service
@@ -41,4 +42,4 @@ spec:
     targetPort: 5000
   selector:
     app: flaskapi
-  type: LoadBalancer
+  type: NodePort
