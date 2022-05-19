@@ -3,7 +3,6 @@
 yaml-lint:
 	@echo "---------yamllint----------"
 	yamllint flaskapi-secrets.yml
-	yamllint flaskapp-service.yml
 	
 
 docker-lint:
