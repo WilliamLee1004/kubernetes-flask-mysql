@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: flaskapi
-          image: icr.io/intvwee-ns/flask-api:1
+          image: icr.io/intvwee-ns/flask-api:
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
