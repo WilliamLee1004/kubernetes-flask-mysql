@@ -12,63 +12,62 @@ paths:
       responses:
         '200':
           description: A paged array of users
-          headers:
+          content:
             application/json:
-              description: A paged array of users
               schema:
-                type: string
+                $ref: "#/components/schemas/Users"
         default:
           description: unexpected error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
-  /user/{int:user_id}:
+                $ref: "#/components/schemas/Users"
+  /user/{user_id}:
     get:
       summary: Info for a specific user
       operationId: showUserById
       tags:
         - users
       parameters:
-        - name: userId
+        - name: user_id
           in: path
           required: true
           description: The id of the user to retrieve
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           description: Expected response to a valid request
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Pet"
+                $ref: "#/components/schemas/Users"
         default:
           description: unexpected error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
-  /delete/{int:user_id}:
+                $ref: "#/components/schemas/Users"
+  /delete/{user_id}:
     get:
       summary: Delete for a specific user
       operationId: deleteUserById
       tags:
         - users
       parameters:
-        - name: userId
+        - name: user_id
           in: path
           required: true
           description: The id of the user to retrieve
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           description: Expected response to a valid request
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Pet"
+                $ref: "#/components/schemas/User"
         default:
           description: unexpected error
           content:
@@ -77,7 +76,7 @@ paths:
                 $ref: "#/components/schemas/Error"
 components:
   schemas:
-    User:
+    Users:
       type: object
       required:
         - id
@@ -94,12 +93,19 @@ components:
           type: string
         password:
           type: string
-        tag:
+    User:
+      type: object
+      required:
+        - name
+        - email
+        - password
+      properties:
+        name:
           type: string
-    Users:
-      type: array
-      items:
-        $ref: "#/components/schemas/User"
+        email:
+          type: string
+        password:
+          type: string
     Error:
       type: object
       required:
